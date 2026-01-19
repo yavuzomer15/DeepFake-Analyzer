@@ -2,6 +2,8 @@ import data_exp
 from torchvision import transforms
 import torchvision
 import torch
+import matplotlib.pyplot as plt
+import numpy as np
 
 data_transform = {
     'train':transforms.Compose([
@@ -41,13 +43,12 @@ class_names= image_datasets['train'].classes
 print(f"Dataset size: {dataset_sizes}")
 print(f"Classes: {class_names}")
 
-import matplotlib.pyplot as plt
-import numpy as np
-import torchvision
 
+
+""""
 # Görselleştirme fonksiyonu
 def imshow(inp, title=None):
-    """Tensoru resme çevirip gösterir"""
+    #Tensoru resme çevirip gösterir
     inp = inp.numpy().transpose((1, 2, 0)) # (C, H, W) -> (H, W, C) formatına çevir
     mean = np.array([0.5, 0.5, 0.5])
     std = np.array([0.5, 0.5, 0.5])
@@ -66,4 +67,4 @@ out = torchvision.utils.make_grid(inputs[:4]) # İlk 4 resmi al
 
 plt.figure(figsize=(10, 5))
 imshow(out, title=[class_names[x] for x in classes[:4]])
-plt.show()
+plt.show()"""
