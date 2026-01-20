@@ -8,8 +8,8 @@ from data_preprocessing import dataLoaders
 import time
 import copy
 
-device = torch.device("cpu") 
-print(f"⚠️ GPU Uyumsuzluğu Nedeniyle CPU Modu Aktif: {device}")
+#device = torch.device("cpu") 
+#print(f"⚠️ GPU Uyumsuzluğu Nedeniyle CPU Modu Aktif: {device}")
 
 model= models.resnet50(weights='DEFAULT')
 
@@ -31,9 +31,12 @@ optimizer = torch.optim.Adam(model.fc.parameters(),lr=0.001)
 
 print("Loss function and optimizer arranged!")
 
+if device.type=="cuda":
+    print(f"GPU model: {torch.cuda.get_device_name(0)}")
+
 #epoch
 
-def train_model(model, criterion, optimizer, num_epochs=1):
+def train_model(model, criterion, optimizer, num_epochs=3):
     best_model_wg=copy.deepcopy(model.state_dict())
     best_acc=0.0
 
@@ -81,4 +84,5 @@ def train_model(model, criterion, optimizer, num_epochs=1):
     return model
 
 model_ft=train_model(model,criterion,optimizer,num_epochs=10)
-
+torch.save(model_ft.state_dict(),'deepfake_resnet50.pth')
+print("Model has been saved!")
