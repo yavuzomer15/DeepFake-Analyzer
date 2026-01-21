@@ -5,11 +5,7 @@ import torch
 from data_exp import device as device
 from data_preprocessing import dataset_sizes
 from data_preprocessing import dataLoaders
-import time
 import copy
-
-#device = torch.device("cpu") 
-#print(f"⚠️ GPU Uyumsuzluğu Nedeniyle CPU Modu Aktif: {device}")
 
 model= models.resnet50(weights='DEFAULT')
 
