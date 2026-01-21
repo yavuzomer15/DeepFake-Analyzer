@@ -1,2 +1,5 @@
-dataset
+dataset_faceswap
 test_image.jpeg
+Temp_Pool
+dataset
+.gitignore

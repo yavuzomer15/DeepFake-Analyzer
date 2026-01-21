@@ -12,9 +12,9 @@ if device.type=="cuda":
     print(f"VRAM:{torch.cuda.get_device_properties(0).total_memory / 1e9: .2f} GB")
 
 
-data_path=Path("C:/Users/omery/Desktop/df/dataset/real-vs-fake")
-train_data_path=Path("C:/Users/omery/Desktop/df/dataset/real-vs-fake/train")
-test_data_path=Path("C:/Users/omery/Desktop/df/dataset/real-vs-fake/test")
+data_path=Path("C:/Users/omery/Desktop/df/dataset")
+train_data_path=Path("C:/Users/omery/Desktop/df/dataset/train")
+test_data_path=Path("C:/Users/omery/Desktop/df/dataset/test")
 
 def count_data(data_path):
     file_count=0

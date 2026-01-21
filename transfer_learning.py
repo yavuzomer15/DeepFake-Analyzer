@@ -79,6 +79,6 @@ def train_model(model, criterion, optimizer, num_epochs=3):
     model.load_state_dict(best_model_wg)        
     return model
 
-model_ft=train_model(model,criterion,optimizer,num_epochs=10)
+model_ft=train_model(model,criterion,optimizer,num_epochs=3)
 torch.save(model_ft.state_dict(),'deepfake_resnet50.pth')
 print("Model has been saved!")
