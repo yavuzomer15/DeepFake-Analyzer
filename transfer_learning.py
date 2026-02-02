@@ -32,7 +32,7 @@ if device.type=="cuda":
 
 #epoch
 
-def train_model(model, criterion, optimizer, num_epochs=3):
+def train_model(model, criterion, optimizer, num_epochs=5):
     best_model_wg=copy.deepcopy(model.state_dict())
     best_acc=0.0
 
@@ -79,6 +79,6 @@ def train_model(model, criterion, optimizer, num_epochs=3):
     model.load_state_dict(best_model_wg)        
     return model
 
-model_ft=train_model(model,criterion,optimizer,num_epochs=3)
+model_ft=train_model(model,criterion,optimizer,num_epochs=6)
 torch.save(model_ft.state_dict(),'deepfake_resnet50.pth')
 print("Model has been saved!")

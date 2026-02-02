@@ -7,20 +7,24 @@ import numpy as np
 
 data_transform = {
     'train':transforms.Compose([
-        transforms.Resize((224,224)),
-        transforms.RandomHorizontalFlip(p=0.5),
+        transforms.Resize((256,256)),
+        transforms.RandomRotation(15),
+        transforms.RandomHorizontalFlip(),
+        transforms.ColorJitter(brightness=0.1, contrast=0.1),
+        transforms.CenterCrop(224),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ]),
     'test':transforms.Compose([
-        transforms.Resize((224,224)),
+        transforms.Resize((256,256)),
+        transforms.CenterCrop(224),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225])
     ])
 }
 
 #Batching
-BATCH_SIZE=32
+BATCH_SIZE=128
 
 
 train_data=torchvision.datasets.ImageFolder(root=data_exp.train_data_path, transform=data_transform['train'])
